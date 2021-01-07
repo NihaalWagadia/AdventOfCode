@@ -1,0 +1,33 @@
+// "static void main" must be defined in a public class.
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = new int[]{https://adventofcode.com/2019/day/2/input};
+        System.out.println(Arrays.toString(arr));
+        arr = (programAlarm(arr));        
+        System.out.println(Arrays.toString(arr));
+    }
+    
+    public static int[] programAlarm(int[] arr){
+        for(int i=0; i<arr.length-3; i=i+4){
+            if(arr[i]==1){
+                int x = arr[i+1];
+                int y = arr[i+2];
+                int sum = arr[x]+arr[y];
+                int position = arr[i+3];
+                arr[position]= sum;
+            }
+            else if(arr[i]==2){
+                int x = arr[i+1];
+                int y = arr[i+2];
+                int sum = arr[x]*arr[y];
+                int position = arr[i+3];
+                arr[position]= sum;
+            }
+            else{
+                break;
+            }
+        }
+        return arr;
+    }
+}
